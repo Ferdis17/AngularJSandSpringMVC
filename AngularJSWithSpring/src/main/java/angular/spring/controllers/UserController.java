@@ -13,9 +13,9 @@ public class UserController {
 	
 	private static Logger logger = Logger.getLogger(UserController.class);
 	
-	@GetMapping(value = "/welcome")
+	@GetMapping(value = "/home")
 	public ModelAndView home() {
-		return new ModelAndView("welcome");
+		return new ModelAndView("home");
 	}
 	
 	@GetMapping(value = "/userList")
