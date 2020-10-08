@@ -1,8 +1,8 @@
 package org.cii.christimpact.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Member {
@@ -13,19 +13,27 @@ public class Member {
     private  String firstName;
     private String maritalStatus;
 
+    @NotBlank
+    private String phone;
+
+    @Email
+    @NotBlank
+    private String email;
+
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="street",nullable = false)
-    @JsonIgnore
     private Address address;
 
     public Member(){}
 
-    public Member(Long memberId, String lastName, String firstName, String maritalStatus, Address address) {
+    public Member(Long memberId, String lastName, String firstName, String maritalStatus,
+                  String phone, String email, Address address) {
         this.memberId = memberId;
         this.lastName = lastName;
         this.firstName = firstName;
         this.maritalStatus = maritalStatus;
-        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.address =  address;
     }
 
     public Long getMemberId() {
@@ -58,6 +66,22 @@ public class Member {
 
     public void setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Address getAddress() {

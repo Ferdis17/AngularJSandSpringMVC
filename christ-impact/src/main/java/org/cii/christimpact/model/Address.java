@@ -20,9 +20,6 @@ public class Address {
     @NotBlank
     private String zipCode;
 
-    @NotBlank
-    private String phone;
-
     public Address(){}
 
     public Address(String street, String city, String state, String zipCode) {
@@ -70,13 +67,5 @@ public class Address {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 }

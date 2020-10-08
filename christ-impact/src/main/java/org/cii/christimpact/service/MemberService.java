@@ -2,7 +2,7 @@ package org.cii.christimpact.service;
 
 
 import org.cii.christimpact.model.Member;
-import org.cii.christimpact.repository.AddressRepository;
+//import org.cii.christimpact.repository.AddressRepository;
 import org.cii.christimpact.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ public class MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-    @Autowired
-    private AddressRepository addressRepository;
+//    @Autowired
+//    private AddressRepository addressRepository;
 
 
     public Member saveOrUpdateMember(Member member) {
@@ -33,6 +33,4 @@ public class MemberService {
     public void deleteMember(String name) {
         memberRepository.delete(findMember(name));
     }
-
-
 }
